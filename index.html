@@ -11,7 +11,7 @@
 .side-nav .nav-item svg.i.nx-ic{width:30px;height:30px;padding:5px;border-radius:9px;background:linear-gradient(145deg,var(--ic2),var(--ic));stroke:none;flex:none;box-shadow:0 2px 4px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.25)}
 .side-nav .nav-item[aria-current=page] svg.i.nx-ic{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ic)}
 </style></head><body>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+<script>(function(){try{var q=new URLSearchParams(location.search).get("ds");if(q!==null)localStorage.setItem("nx.ds",q);if(localStorage.getItem("nx.ds")!=="0")document.documentElement.classList.add("ds")}catch(e){}})();</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
 <script>
 /* GUP Nexus data layer: shared storage on Supabase, open only to team members (email + one-time code). */
 (function(){
@@ -529,7 +529,7 @@ window.nexusData = { use: async function(name){ await ready; return caps[name] |
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
 <style>
 /* Layout: sticky top bar, start-side project rail, flat bordered columns. No shadows, small radii. */
 :root{
@@ -2044,6 +2044,39 @@ html[data-dens="c"] .panel{padding:10px 12px}html[data-dens="c"] .m-sec{margin-b
 .mt-urg-h{margin:0 4px 10px;font-weight:800;font-size:15px;color:var(--fg)}
 .mt-urgent > details.m-acc{margin-bottom:10px}
 
+
+/* ===== نظام التصميم الوطني (Gov-om design system) ===== */
+html.ds{--font:"Readex Pro","IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;--font-en:"Readex Pro","IBM Plex Sans",system-ui,sans-serif;--r:8px}
+html.ds[data-theme="light"]{--gov-blue:#2F57CD;--gov-navy:#243D89;--gov-ink:#132459;--accent:#2F57CD;--accent-hover:#243D89;--accent-soft:#DDE9FF;--info:#2F57CD;--info-soft:#DDE9FF;--brand:#243D89;--brand-deep:#132459;
+ --bg:#FEFCF9;--surface:#FFFFFF;--surface-2:#ECEEF4;--line:#E1E1E2;--line-strong:#D0D0D4;--fg:#27272A;--muted:#52525B;
+ --s-done:#157F3C;--done-soft:#F2FDF5;--danger:#BA1C1C;--danger-soft:#FEF1F1;--warn:#A26107;--warn-soft:#FEFCE7;--s-progress:#2F57CD;--s-review:#A26107;
+ --side-bg:#FFFFFF;--side-fg:#27272A;--side-muted:#52525B;--side-hover:#ECEEF4;--side-active:#DDE9FF;--side-active-fg:#132459;--side-line:#E1E1E2;
+}
+@media (prefers-color-scheme: light){html.ds:not([data-theme="dark"]){--gov-blue:#2F57CD;--gov-navy:#243D89;--gov-ink:#132459;--accent:#2F57CD;--accent-hover:#243D89;--accent-soft:#DDE9FF;--info:#2F57CD;--info-soft:#DDE9FF;--brand:#243D89;--brand-deep:#132459;
+ --bg:#FEFCF9;--surface:#FFFFFF;--surface-2:#ECEEF4;--line:#E1E1E2;--line-strong:#D0D0D4;--fg:#27272A;--muted:#52525B;
+ --s-done:#157F3C;--done-soft:#F2FDF5;--danger:#BA1C1C;--danger-soft:#FEF1F1;--warn:#A26107;--warn-soft:#FEFCE7;--s-progress:#2F57CD;--s-review:#A26107;
+ --side-bg:#FFFFFF;--side-fg:#27272A;--side-muted:#52525B;--side-hover:#ECEEF4;--side-active:#DDE9FF;--side-active-fg:#132459;--side-line:#E1E1E2;
+}}
+html.ds body,html.ds button,html.ds input,html.ds select,html.ds textarea{font-family:var(--font)}
+html.ds :focus-visible{outline:3px solid #9747FF!important;outline-offset:2px}
+html.ds.ds-ic .side-nav .nav-item svg.i.nx-ic{display:none}
+html.ds .toolbar .search{flex:1 1 150px}
+html.ds .who-f select{min-width:140px}
+html.ds .toolbar{gap:8px}
+html.ds .ds-ni{font-size:21px;line-height:1;color:var(--muted);width:30px;height:30px;display:inline-grid;place-items:center;border-radius:8px;flex:none}
+html.ds .side-nav .nav-item[aria-current=page] .ds-ni{color:#fff;background:var(--gov-blue)}
+html.ds .side-nav .nav-item:hover .ds-ni{color:var(--gov-ink)}
+html.ds .ds-ei{font-size:1.1em;line-height:1;vertical-align:-.15em;color:var(--gov-blue);margin-inline-end:.15em}
+html.ds .btn.primary .ds-ei,html.ds .lvq-btn .ds-ei,html.ds .btn.danger .ds-ei{color:inherit}
+html.ds .m-h .ds-ei,html.ds summary .ds-ei{color:var(--gov-ink)}
+html.ds .panel,html.ds .card,html.ds details.m-acc,html.ds .kpi{box-shadow:0 1px 2px rgba(28,33,51,.04),0 2px 6px rgba(28,33,51,.04)}
+html.ds .btn.primary{background:var(--gov-blue);border-color:var(--gov-blue)}
+html.ds .btn.primary:hover{background:var(--gov-navy);border-color:var(--gov-navy)}
+
+.rp-addgen{color:var(--fg)!important;background:var(--surface)!important;border-color:var(--line-strong)!important}
+:root[data-theme="dark"] .av:not(.ph):not([style*="background"]){background:#5A6479}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .av:not(.ph):not([style*="background"]){background:#5A6479}}
+
 </style>
 
 <a class="skip" href="#mainContent" data-i18n="skip"></a>
@@ -2626,7 +2659,7 @@ seedBtn:"إضافة المؤشرات الرسمية للنصف الثاني 2026
 attach:"إرفاق ملف",attRemove:"إزالة المرفق {n}",attTooBig:"حجم الملف أكبر من 25 ميجابايت.",sp_sched:"الجدول",sp_checkin:"المتابعة الدورية",evNew:"موعد جديد للقسم",evTitle:"الموعد",evPlace:"المكان",evNote:"ملاحظة",evAdd:"إضافة إلى الجدول",evUpcoming:"المواعيد القادمة",evNone:"لا توجد مواعيد قادمة. أضف موعداً ليظهر للفريق.",evPast:"المواعيد السابقة ({n})",evDue:"تسليم",evDelMsg:"سيُحذف هذا الموعد من جدول القسم.",ciNew:"سؤال متابعة جديد",ciQ:"السؤال",ciQPh:"مثال: ما الذي أنجزته هذا الأسبوع؟ وهل تواجه عائقاً؟",ciFreq:"يتكرر",ciWeekly:"أسبوعياً",ciDaily:"يومياً",ciAdd:"إضافة السؤال",ciEmpty:"لا توجد أسئلة متابعة بعد. يضيفها مسؤول القسم.",ciEmptyMgr:"أضف سؤالاً يجيب عنه الفريق يومياً أو أسبوعياً.",ciWeekOf:"أسبوع {d} – {e}",ciPrev:"الفترة السابقة",ciNext:"الفترة التالية",ciCount:"{n} إجابات",ciAnsPh:"اكتب إجابتك…",ciSend:"إرسال الإجابة",ciNoAns:"لا توجد إجابات لهذه الفترة.",ciMissing:"لم يجب بعد",ciThanks:"شكراً، وصلت إجابتك",ciDelMsg:"سيُحذف السؤال مع كل إجاباته.",ciDelAns:"حذف إجابتي",
 navSpaces:"مساحة الأقسام",sp_todo:"المهام",spSub:"مساحة داخلية للقسم ومسؤوله: مهام القسم الداخلية والدردشة عليها.",spOpenN:"{n} مهام مفتوحة",todoGeneral:"مهام عامة",todoListPh:"اسم قائمة مهام جديدة",todoNewList:"قائمة جديدة",todoAddPh:"أضف مهمة واضغط Enter",todoEmpty:"لا توجد مهام مفتوحة. اكتب مهمة في الخانة أدناه واضغط Enter.",todoDoneN:"المنجزة ({n})",todoProg:"{d} من {n} مهام منجزة",itMarkDone:"تعليم كمنجزة",itUndone:"إلغاء الإنجاز",itDoneToast:"أحسنت! تم إنجاز المهمة",itTitleH:"مهمة داخلية",itDone:"منجزة",itDue:"تاريخ التسليم",itNotes:"ملاحظات",itAddedBy:"أضافها",todoDoneBy:"أنجزها",itDelMsg:"ستُحذف مهمة «{n}» مع دردشتها.",listDel:"حذف القائمة",listDelMsg:"ستُحذف قائمة «{n}» وتنتقل مهامها ({c}) إلى المهام العامة.",
 kindTask:"مهمة",kindKpi:"مؤشر",tKind:"النوع",tKpi:"المؤشر الذي تتبعه المهمة (اختياري)",tKTeams:"الفرق المشاركة في المؤشر",tKTeamsHint:"اختر فريقاً واحداً لمؤشر خاص بالفريق، أو أكثر من فريق لمؤشر مشترك.",kpiTitleLbl:"اسم المؤشر",tKpiNone:"لا يوجد مؤشر لهذا الفريق. تُحفظ كمهمة مستقلة.",tKpiReq:"اختر المؤشر الذي تتبعه هذه المهمة.",tKpiNoneErr:"يجب أن تكون كل مهمة تحت مؤشر. أنشئ مؤشراً لهذا الفريق أولاً.",kpiTeamsReq:"اختر فريقاً واحداً على الأقل.",kpiToTaskBlocked:"لا يمكن تحويل مؤشر يحتوي على مهام إلى مهمة.",needApprove:"أُرسلت المهمة للمراجعة. الاعتماد من مسؤول الفريق أو المشرف.",assignees:"المكلّفون",assRm:"إزالة {n}",taskChat:"دردشة المهمة",cmts:"التعليقات",cmtPh:"اكتب رسالة… استخدم @ للإشارة إلى زميل",cmtSend:"إرسال",cmtNone:"لا توجد رسائل بعد. ابدأ الدردشة.",cmtSaveFirst:"احفظ المهمة أولاً لتبدأ الدردشة عليها.",cmtDel:"حذف الرسالة",cmtCount:"{n} رسائل",mentionList:"اقتراحات الإشارة",mentionMailFail:"أُرسلت الرسالة، لكن تعذّر إرسال بريد الإشارة.",st_kpi:"المؤشرات",kpiBadge:"مؤشر",kpiShared:"مؤشر مشترك",sharedTab:"المؤشرات المشتركة",sharedTitle:"المؤشرات المشتركة",kSharedSub:"مؤشرات يعمل عليها أكثر من قسم، ويرى كل قسم نصيبه ويُحسب له.",kpiProg:"{d} من {n} مهام منجزة",kpiAllN:"الإجمالي: {d} من {n} · {c} فرق",kpiYours:"نصيب {t}: {d} من {n}",kpiNoOpen:"كل المهام المفتوحة أُنجزت.",kpiNoTasks:"لا توجد مهام تحت هذا المؤشر بعد.",kpiAddTask:"إضافة مهمة",kpiAddTaskTeam:"مهمة لـ{t}",kpiNew:"مؤشر جديد",kpiNewShared:"مؤشر مشترك جديد",editKpi:"تعديل المؤشر",kpiEmpty:"لا توجد مؤشرات بعد. اضغط «مؤشر جديد» أدناه، أو «إضافة مؤشرات» لاستيرادها من ملف.",unlinkedBadge:"بدون مؤشر",unlinkedTitle:"مهام بدون مؤشر",unlinkedHint:"افتح المهمة واختر لها مؤشراً.",finishBtn:"أنجزتها",approveBtn:"اعتماد",returnBtn:"إرجاع",reviewEmpty:"لا توجد مهام بانتظار الاعتماد. تظهر هنا المهام المرسلة للاعتماد.",doneEmpty:"لا توجد مهام منجزة بعد. تنتقل المهمة إلى هنا عند إنجازها.",notifs:"الإشعارات",notifCount:"{n} غير مقروءة",notifNone:"لا توجد إشعارات جديدة. تصلك هنا الطلبات والإشارات ونتائج الاعتماد.",notifReadAll:"تعليم الكل كمقروء",notifMention:"أشار إليك في: {k}",notifChat:"دردشة {t}",notifPost:"نقاشات {t}",deletedItem:"العنصر محذوف",sp_perf:"الأداء",sp_board:"لوحة المهام",sp_chat:"المحادثة",sp_posts:"النقاشات",sp_tools:"أدوات الفريق",locked:"مقفل",spLockedT:"هذه المساحة خاصة بالفريق",spLockedP:"يدخلها أعضاء {t} ورئيس القسم والمشرفون فقط.",perfMonth:"الشهر",perfDone:"منجزة هذا الشهر",perfReview:"بانتظار الاعتماد",perfLate:"متأخرة",perfAvg:"متوسط تقدم المؤشرات",perfKpis:"تقدم المؤشرات",perfPending:"بانتظار الاعتماد ({n})",perfMembers:"أداء الأعضاء — {m}",perfMember:"العضو",perfDoneC:"منجزة",perfOpenC:"مفتوحة",perfLateC:"متأخرة",perfRate:"نسبة الإنجاز",perfNoMembers:"حدّد أعضاء الفريق من صفحة الفريق.",chatPh:"اكتب رسالة للفريق… @ للإشارة",chatEmpty:"ابدأ أول محادثة للفريق.",chatDel:"حذف الرسالة",today:"اليوم",postNew:"نقاش جديد",postTitle:"العنوان",postBody:"التفاصيل",postPublish:"نشر",postEmpty:"لا توجد نقاشات بعد. ابدأ نقاشاً ليشارك فيه الفريق.",postBack:"كل النقاشات",postDelMsg:"سيُحذف هذا النقاش.",toolAdd:"إضافة أداة",toolEdit:"تعديل الأداة",toolName:"اسم الأداة",toolUrl:"الرابط",toolDesc:"وصف قصير",toolColor:"اللون",toolOpen:"فتح",toolNewTab:"فتح في تبويب جديد",toolOpenIn:"فتح {n}",toolBlocked:"{n} لا تسمح بالعرض داخل منصات أخرى، لذلك تُفتح في تبويب جديد.",toolHint:"إذا ظهرت الأداة فارغة، افتحها في تبويب جديد.",toolEmpty:"أضف روابط البرامج التي يستخدمها القسم، مثل Google Sheets أو Canva أو Power BI.",toolUrlErr:"اكتب رابطاً يبدأ بـ https://",toolDelMsg:"ستُحذف أداة «{n}» من مساحة الفريق.",tmColTeam:"القسم",tmColTeamRole:"الدور في الفريق",teamLead:"رئيس القسم",roleMember:"عضو",tabRooms:"حجز القاعة",roomsSub:"اعرف أوقات توفر القاعة واحجزها دون تعارض.",roomManage:"إدارة القاعات",roomPick:"اختر القاعة",roomWeek:"جدول {r} هذا الأسبوع",prevWeek:"الأسبوع السابق",nextWeek:"الأسبوع التالي",thisWeek:"هذا الأسبوع",bookNew:"حجز جديد",bookEdit:"تفاصيل الحجز",bookAt:"حجز {d} الساعة {s}",booked:"محجوز",bookedBy:"حجزها",bookFromMeet:"من اجتماع (عدّله من الاجتماعات)",bookSaved:"تم الحجز",bookCancel:"إلغاء الحجز",bookCancelMsg:"سيُلغى هذا الحجز وتصير القاعة متاحة.",bookCancelled:"أُلغي الحجز",roomBusy:"{r} محجوزة من {s} إلى {e} لـ«{w}» ({n})",roomHint:"اضغط على وقت متاح للحجز السريع، أو على حجز لعرض تفاصيله.",roomList:"حجوزات هذا الأسبوع",roomWeekEmpty:"لا توجد حجوزات هذا الأسبوع.",roomNone:"لا توجد قاعات بعد",roomNoneAdmin:"أضف قاعة من «إدارة القاعات».",roomNoneUser:"سيضيف المشرف القاعات قريباً.",roomDelMsg:"ستُحذف القاعة مع حجوزاتها ({n}).",roomName:"اسم القاعة",roomAdd:"إضافة قاعة",bkTitle:"الغرض من الحجز",bkRoom:"القاعة",bkDate:"التاريخ",bkStart:"من",bkEnd:"إلى",bkTeam:"الفريق",noTeam:"بدون",mRoom:"القاعة",mRoomNone:"بدون قاعة",mRoomNeedTime:"حدّد وقت البداية لحجز القاعة.",mRoomFree:"القاعة متاحة في هذا الوقت",
-searchTasks:"بحث في عناوين المهام",newTask:"مهمة جديدة",editTask:"تعديل المهمة",all:"الكل",
+searchTasks:"بحث في المهام",newTask:"مهمة جديدة",editTask:"تعديل المهمة",all:"الكل",
 team:"الفريق",teamContent:"فريق المحتوى",teamUx:"فريق تجربة المستخدم",teamServices:"فريق الخدمات",teamMulti:"عدة فرق",
 st_todo:"للتنفيذ",st_progress:"قيد التنفيذ",st_review:"قيد المراجعة",st_done:"منجزة",
 pr_low:"منخفضة",pr_medium:"متوسطة",pr_high:"عالية",pr_urgent:"عاجلة",
@@ -4695,6 +4728,21 @@ $("#qsInput").addEventListener("keydown",e=>{if(e.key==="Escape"){e.preventDefau
 $("#qsList").addEventListener("click",e=>{const li=e.target.closest("[data-qs]");if(li)qsGo(+li.dataset.qs)});
 $("#qsDlg").addEventListener("click",e=>{if(e.target.id==="qsDlg")$("#qsDlg").close()});
 document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&(e.key==="k"||e.key==="K"||e.code==="KeyK")&&document.body.classList.contains("nx-in")){e.preventDefault();qsOpen()}});
+
+
+/* ===== أيقونات نظام التصميم (Remix) ===== */
+(function(){
+ const NAV={mine:"ri-task-line",handover:"ri-user-shared-line",leaves:"ri-sun-line",dhome:"ri-government-line",myteam:"ri-team-line",report:"ri-file-chart-line",dm:"ri-mail-line",dash:"ri-dashboard-3-line",shared:"ri-git-merge-line",meetings:"ri-calendar-event-line",files:"ri-folder-3-line",lounge:"ri-chat-smile-2-line",entities:"ri-building-line",team:"ri-shield-user-line",rewards:"ri-trophy-line"};
+ const EM={"✅":"ri-checkbox-circle-line","🏖️":"ri-sun-line","🏖":"ri-sun-line","↩️":"ri-arrow-go-back-line","💬":"ri-chat-3-line","⭐":"ri-star-line","📨":"ri-mail-send-line","📅":"ri-calendar-line","📄":"ri-file-text-line","🔗":"ri-links-line","📣":"ri-megaphone-line","📢":"ri-megaphone-line","🌟":"ri-star-smile-line","⏳":"ri-hourglass-line","🗂️":"ri-folders-line","✉️":"ri-mail-line","🎂":"ri-cake-2-line","⚠️":"ri-error-warning-line","🔒":"ri-lock-line","📋":"ri-clipboard-line","🗑️":"ri-delete-bin-line","➕":"ri-add-line","📌":"ri-pushpin-line","📤":"ri-upload-2-line","📂":"ri-folder-open-line","✏️":"ri-pencil-line","📎":"ri-attachment-line","🏆":"ri-trophy-line","🏠":"ri-home-4-line","👤":"ri-user-line","🤝":"ri-shake-hands-line","✨":"ri-sparkling-line","📝":"ri-sticky-note-line","📊":"ri-bar-chart-2-line","🔍":"ri-search-line","👥":"ri-team-line","👁️":"ri-eye-line","🗓️":"ri-calendar-2-line","🎨":"ri-palette-line","📚":"ri-book-2-line","📥":"ri-download-2-line","🎯":"ri-focus-3-line","🙋":"ri-question-answer-line","🚗":"ri-car-line","🎧":"ri-headphone-line","📁":"ri-folder-line","🔔":"ri-notification-3-line","⏰":"ri-alarm-line","🧰":"ri-tools-line","🏢":"ri-building-line","❓":"ri-question-line","📮":"ri-inbox-line","🔊":"ri-volume-up-line","✍️":"ri-quill-pen-line","📷":"ri-camera-line","🍽️":"ri-restaurant-line","👋":""};
+ const SEL=".m-h,summary,h1,h2,h3,.sp-tabs button,.sp-moremenu button,.dt-b,.btn,.lvq-btn,.ann-new,.add-inline,.kbadge,.mt-urg-h,.dh-kick,.lc-btn,.tab-btn,.hub-tabs a,.hub-tabs button,.dh-cat,.mp-see,.lvq-cat,label,.field > span,.tf-meta,.dc-sec h3,.m-sec h3";
+ const KEYS=Object.keys(EM).sort((a,b)=>b.length-a.length);const RX=new RegExp("("+KEYS.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")\\uFE0F?","g");
+ function fixText(tn){const v=tn.nodeValue;if(!v||!RX.test(v))return;RX.lastIndex=0;const frag=document.createDocumentFragment();let last=0;v.replace(RX,(m,k,off)=>{if(off>last)frag.appendChild(document.createTextNode(v.slice(last,off)));const c=EM[k];if(c){const i=document.createElement("i");i.className=c+" ds-ei";i.setAttribute("aria-hidden","true");frag.appendChild(i)}last=off+m.length;return m});if(last<v.length)frag.appendChild(document.createTextNode(v.slice(last)));tn.replaceWith(frag)}
+ function scan(root){if(!document.documentElement.classList.contains("ds-ic"))return;{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||!RX.test(n.nodeValue)){RX.lastIndex=0;return NodeFilter.FILTER_REJECT}RX.lastIndex=0;return p.closest("script,style,textarea,input,option,[contenteditable],[dir=auto],.card-title,.tf-title,#chatLog,.anbar,.an-item,.ann-tick,.tour-card,#toastHost,.qs-dlg li")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}});const L=[];while(w.nextNode())L.push(w.currentNode);L.forEach(fixText)}
+  document.querySelectorAll(".side-nav .nav-item[data-view]").forEach(b=>{if(b.querySelector(".ds-ni"))return;const c=NAV[b.dataset.view];if(!c)return;const i=document.createElement("i");i.className=c+" ds-ni";i.setAttribute("aria-hidden","true");const sv=b.querySelector(":scope > svg.i");if(sv)sv.before(i);else b.prepend(i)})}
+ let pend=false;const mo=new MutationObserver(()=>{if(pend)return;pend=true;requestAnimationFrame(()=>{pend=false;mo.disconnect();try{scan(document)}finally{mo.observe(document.body,{childList:true,subtree:true,characterData:true})}})});
+ function start(){if(!document.documentElement.classList.contains("ds"))return;const go=()=>{if(document.documentElement.classList.contains("ds-ic"))return;document.documentElement.classList.add("ds-ic");scan(document);mo.observe(document.body,{childList:true,subtree:true,characterData:true})};try{document.fonts.load('16px "remixicon"',"\uea00").then(f=>{if(f&&f.length)go()}).catch(()=>{})}catch(e){}}
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();
+})();
 
 /* ===== تقرير الإدارة ===== */
 
