@@ -2643,7 +2643,7 @@ html[data-theme="dark"] .xb-bar em{background:#fff}
   </div></header>
 
   <main id="mainContent" tabindex="-1">
-    <div id="globalNotice"></div>
+    <div id="globalNotice"></div><div id="pgSw" class="pg-sw" role="group" hidden></div><nav id="mySpTabs" class="mysp" hidden></nav>
 
     <section id="dashView" hidden>
       <div class="view-head hero" data-hero="dash" style="--tc:var(--h-dash)"><div class="view-title"><h1 data-i18n="dashTitle"></h1><div class="meta-line" id="dashMeta"></div></div></div>
@@ -2708,7 +2708,7 @@ html[data-theme="dark"] .xb-bar em{background:#fff}
       <div id="boardWrap"></div>
     </section>
 
-    <div id="pgSw" class="pg-sw" role="group" hidden></div><nav id="mySpTabs" class="mysp" hidden></nav><section id="homeView" hidden><div id="homeWrap"></div></section><section id="mwView" hidden><div id="mwWrap"></div></section><section id="msView" hidden><div id="msWrap"></div></section>
+    <section id="homeView" hidden><div id="homeWrap"></div></section><section id="mwView" hidden><div id="mwWrap"></div></section><section id="msView" hidden><div id="msWrap"></div></section>
     <section id="mineView" hidden><div id="mineWrap"></div></section>
     <section id="hoView" hidden><div id="hoWrap"></div></section>
     <section id="lvView" hidden><div id="lvWrap"></div></section>
@@ -5485,7 +5485,7 @@ function mySpTabs(){const dr=isDirector(),ld=!dr&&!!myRost().lead,tm=myRost().te
 function mySpDefault(){return isDirector()?"dhome":myRost().lead?"myteam":"mywork"}
 function mySpCur(){const tm=myRost().team;if(S.view==="mine"||S.view==="handover")return"mywork";if(S.view==="board"&&S.pid==="all"&&tm&&S.team===tm)return"board:"+tm;return S.view==="minutes"||S.view==="rooms"||S.view==="daysched"?"meetings":S.view}
 function mySpOn(){const c=mySpCur();return["dhome","myteam","report","mywork","mine","handover"].includes(c)||(c.startsWith("board:"))}
-function paintMySp(){const n=$("#mySpTabs");if(!n)return;const c=mySpCur(),T=mySpTabs(),show=T.some(x=>x[0]===c)&&(mySpOn()||S.mySpFrom);n.hidden=!show;{const p=$("#pgSw");if(p){const ph=S.view==="home";p.hidden=!(ph||show);p.setAttribute("aria-label",t("pgSwAria"));p.innerHTML=`<button type="button" data-pg="home"${ph?' aria-current="page"':""}><i class="ri-home-5-line" aria-hidden="true"></i>${esc(t("pgHome"))}<small>${esc(S.lang==="ar"?"للجميع":"for everyone")}</small></button><button type="button" data-pg="me"${show?' aria-current="page"':""}><i class="ri-user-3-line" aria-hidden="true"></i>${esc(t("pgMe"))}<small>${esc(S.lang==="ar"?"خاصة بك":"just for you")}</small></button>`}}if(!show){return}
+function paintMySp(){const n=$("#mySpTabs");if(!n)return;const c=mySpCur(),T=mySpTabs(),show=T.some(x=>x[0]===c)&&(mySpOn()||S.mySpFrom);n.hidden=!show;{const p=$("#pgSw");if(p){const ph=S.view==="home";p.hidden=!ph;p.setAttribute("aria-label",t("pgSwAria"));p.innerHTML=`<button type="button" data-pg="home"${ph?' aria-current="page"':""}><i class="ri-home-5-line" aria-hidden="true"></i>${esc(t("pgHome"))}<small>${esc(S.lang==="ar"?"للجميع":"for everyone")}</small></button><button type="button" data-pg="me"${show?' aria-current="page"':""}><i class="ri-user-3-line" aria-hidden="true"></i>${esc(t("pgMe"))}<small>${esc(S.lang==="ar"?"خاصة بك":"just for you")}</small></button>`}}if(!show){return}
   n.setAttribute("aria-label",t("mySpAria"));
   n.innerHTML=T.map(([v,k])=>`<button type="button" class="mysp-b" data-mysp="${esc(v)}"${v===c?' aria-current="page"':""}>${esc(t(k))}</button>`).join("")}
 document.addEventListener("click",e=>{const g=e.target.closest("[data-pg]");if(g){S.mySpFrom=false;S.view=g.dataset.pg==="me"?mySpDefault():"home";store.set("ws.view",S.view);render();window.scrollTo(0,0);const nb=document.querySelector(`[data-pg="${g.dataset.pg}"]`);if(nb)nb.focus();return}});
