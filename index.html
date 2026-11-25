@@ -2772,6 +2772,13 @@ html.is-app .ap-side,html.is-app .ap-ban{display:none!important}
 :root[data-theme="dark"] .oc-r.on{background:#1C2747;border-color:#3A4A7A}:root[data-theme="dark"] .card-sigs li{background:#33290F;border-color:#6B5520}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .oc-r.on{background:#1C2747;border-color:#3A4A7A}:root:not([data-theme="light"]) .card-sigs li{background:#33290F;border-color:#6B5520}}
 
+.col-addc{flex:0 0 220px;align-self:flex-start;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:120px;margin-top:2px;padding:16px;border:2px dashed #9DB4F5;border-radius:14px;background:rgba(47,87,205,.05);color:#2F57CD;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.col-addc svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.2;fill:none;padding:6px;border-radius:50%;background:#fff;border:1.5px solid #9DB4F5;box-sizing:content-box}
+.col-addc:hover{background:rgba(47,87,205,.1);border-color:#2F57CD}
+.col-addc:focus-visible{outline:3px solid #9747FF;outline-offset:2px}
+:root[data-theme="dark"] .col-addc{color:#9DB4F5;border-color:#3A4A7A;background:rgba(157,180,245,.06)}:root[data-theme="dark"] .col-addc svg{background:transparent;border-color:#3A4A7A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .col-addc{color:#9DB4F5;border-color:#3A4A7A;background:rgba(157,180,245,.06)}:root:not([data-theme="light"]) .col-addc svg{background:transparent;border-color:#3A4A7A}}
+
 </style>
 
 <a class="skip" href="#mainContent" data-i18n="skip"></a>
@@ -4784,7 +4791,7 @@ function kpiBoardHTML(){const q=S.q.trim().toLowerCase(),w=S.canWrite&&!S.noDb;
     h+=colOpen(st,col.length,e.name,e.color||XCOLORS[0])+col.map(x=>cw(x,finishActs(x),{showKpi:1})).join("")+(col.length?"":`<div class="col-empty">${esc(t("colEmpty"))}</div>`)+`</div></div>`}
   for(const st of ["review","done"]){const col=pool.filter(x=>x.status===st).sort(st==="done"?(a,b)=>(b.completedAt||"").localeCompare(a.completedAt||""):ordSort);
     const capD=st==="done"&&col.length>5&&!S.doneAll&&!q&&!S.present;h+=colOpen(st,col.length,stLabel(st),STATUS_COLOR[st])+(capD?col.slice(0,5):col).map(x=>cw(x,st==="review"?reviewActs(x):"",{showKpi:1})).join("")+(st==="done"&&col.length>5&&!q&&!S.present?`<button type="button" class="kmore" data-done-all aria-expanded="${!capD}">${esc(t(capD?"doneAllN":"kLess",{n:col.length}))}</button>`:"")+(col.length?"":`<div class="col-empty">${esc(t(st==="review"?"reviewEmpty":"doneEmpty"))}</div>`)+`</div></div>`}
-  if(canEditCols())h+=`<button type="button" class="col-add" data-col-edit="new"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>${esc(t("colAdd"))}</span></button>`;
+  if(canEditCols())h+=`<button type="button" class="col-addc" data-col-edit="new" title="${esc(t("colAdd"))}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>${esc(t("colAdd"))}</span></button>`;
   return h+`</div>`}
 async function setSt(id,st,noUndo){const x=S.tasks.find(y=>y.id===id);if(!x)return;const prev={status:x.status,order:x.order,completedAt:x.completedAt||null};const now=nowISO(),upd={status:st,updatedAt:now,order:edgeOrder(st,"start")};
   if(st==="done"){upd.completedAt=now;upd.approvedBy=S.me}else upd.completedAt=null;if(st==="review")upd.finishedBy=S.me;
